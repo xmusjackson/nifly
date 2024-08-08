@@ -203,7 +203,7 @@ public:
 
 class NiBlendBoolInterpolator : public NiCloneableStreamable<NiBlendBoolInterpolator, NiBlendInterpolator> {
 public:
-	bool value = false;
+	uint8_t value = 2;
 
 	static constexpr const char* BlockName = "NiBlendBoolInterpolator";
 	const char* GetBlockName() override { return BlockName; }
