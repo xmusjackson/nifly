@@ -667,7 +667,10 @@ class BSEffectShaderProperty : public NiCloneableStreamable<BSEffectShaderProper
 public:
 	NiString sourceTexture;
 	float unkFloat = 0.0f;
-	uint32_t textureClampMode = 0;
+	uint8_t textureClampMode = 0;
+	uint8_t lightingInfluence = 0;
+	uint8_t envMapMinLOD = 0;
+	uint8_t unusedByte = 0;
 	float falloffStartAngle = 1.0f;
 	float falloffStopAngle = 1.0f;
 	float falloffStartOpacity = 0.0f;

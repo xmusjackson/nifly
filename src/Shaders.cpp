@@ -726,6 +726,9 @@ void BSEffectShaderProperty::Sync(NiStreamReversible& stream) {
 		stream.Sync(unkFloat);
 
 	stream.Sync(textureClampMode);
+	stream.Sync(lightingInfluence);
+	stream.Sync(envMapMinLOD);
+	stream.Sync(unusedByte);
 
 	stream.Sync(falloffStartAngle);
 	stream.Sync(falloffStopAngle);
