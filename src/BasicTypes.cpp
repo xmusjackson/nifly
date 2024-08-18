@@ -201,11 +201,14 @@ void NiHeader::SetExportInfo(const std::string& exportInfo) {
 	exportStrings[2] = &exportInfo3;
 
 	auto it = exportStrings.begin();
+	size_t length;
 	for (size_t i = 0; i < exportInfo.length() && it < exportStrings.end(); i += 254, ++it) {
 		if (i + 254 <= exportInfo.length())
-			(*it)->get() = exportInfo.substr(i, 254);
+			length = ((exportInfo.find('\0', i) == std::string::npos) ? 254 : exportInfo.find('\0', i) - i);
 		else
-			(*it)->get() = exportInfo.substr(i, exportInfo.length() - i);
+			length = ((exportInfo.find('\0', i) == std::string::npos) ? exportInfo.length(): exportInfo.find('\0', i)) - i;
+			
+		(*it)->get() = exportInfo.substr(i, std::min(length, static_cast<size_t>(254)));
 	}
 }
 
